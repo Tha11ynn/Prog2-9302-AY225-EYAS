@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Attendance Login System</title>
+<style>
+    * { box-sizing: border-box; }
+    body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #aecae9, #6b888b);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    }
+    .card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px 50px;
+    width: 420px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease;
+    }
+    .card:hover { transform: translateY(-4px); }
+    h2 { color: #333; margin-bottom: 25px; }
+    label {
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #444;
+    }
+    input {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    }
+    input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+    }
+    button {
+    margin-top: 25px;
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background 0.3s;
+    }
+    button:hover { background: #0056b3; }
+    #downloadBtn {
+    background: #28a745;
+    margin-top: 15px;
+    }
+    #downloadBtn:hover { background: #218838; }
+    #message {
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 15px;
+    }
+    #timestamp {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+    }
+    table {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    }
+    table th, table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    }
+    table thead {
+    background: #cfdaa5;
+    color: rgb(0, 0, 0);
+    }
+    .footer {
+    margin-top: 25px;
+    font-size: 13px;
+    color: #666;
+    }
+</style>
+</head>
+<body>
+<div class="card">
+    <h2>🕒 Attendance Login</h2>
+    <form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" placeholder="Enter your name" required />
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Enter password" required />
+
+    <button type="submit">Submit Attendance</button>
+    </form>
+
+    <div id="message"></div>
+    <div id="timestamp"></div>
+
+    <hr style="margin:20px 0; border:none; border-top:1px solid #ccc;">
+    <h3> Attendance Records</h3>
+    <button id="downloadBtn" style="display:none;"> Download Attendance Summary</button>
+    <table id="attendanceTable">
+    <thead>
+        <tr>
+        <th>#</th>
+        <th>Username</th>
+        <th>Timestamp</th>
+    </tr>
+    </thead>
+    <tbody id="attendanceBody">
+    </tbody>
+</table>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
