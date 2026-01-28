@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #b8d3dc;
+    padding: 30px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.title {
+    color: white;
+    border-bottom: 3px solid gold;
+    padding-bottom: 6px;
+    margin-bottom: 15px;
+}
+
+/* ATTENDANCE CARD */
+.attendance-card {
+    background: #4e7c8a;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.attendance-card h3 {
+    color: white;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.attendance-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+/* INPUT CARD (for grades) */
+.input-card {
+    background: #4e7c8a;
+    padding: 20px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.input-group label {
+    color: white;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.input-group input[type="text"] {
+    text-transform: capitalize;
+}
+
+/* BUTTON */
+.btn {
+    margin: 20px 0;
+    padding: 10px 25px;
+    background: darkred;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #a00000;
+}
+
+/* RESULT CARD */
+.result-card {
+    background: #fff7df;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 6px solid #f0c040;
+}
+
+.result-card h3 {
+    margin-top: 0;
+}
+
+.result-card h4 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #f1f1f1;
+}
+
+/* STATUS */
+.passed {
+    color: #1b7f3b;
+    font-weight: bold;
+}
+
+.failed {
+    color: #b00020;
+    font-weight: bold;
+}
+
+/* REMARKS */
+.met {
+    color: #1b7f3b;
+    font-weight: bold;
+}
+
+.impossible {
+    color: #b00020;
+    font-weight: bold;
+}
+
+.pending {
+    color: #b36b00;
+    font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .attendance-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .input-card {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .attendance-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .input-card {
+        grid-template-columns: 1fr;
+    }
+}

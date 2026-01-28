@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prelim Grade Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2 class="title">Prelim Grade Calculator</h2>
+
+    <!-- ATTENDANCE INPUTS -->
+    <div class="attendance-card">
+        <h3>Attendance (P-Present / A-Absent / E-Excused)</h3>
+        <div class="attendance-grid">
+            <div class="input-group">
+                <label>Day 1</label>
+                <input type="text" id="day1" placeholder="Present/Absent/Excused">
+            </div>
+
+            <div class="input-group">
+                <label>Day 2</label>
+                <input type="text" id="day2" placeholder="Present/Absent/Excused">
+            </div>
+
+            <div class="input-group">
+                <label>Day 3</label>
+                <input type="text" id="day3" placeholder="Present/Absent/Excused">
+            </div>
+
+            <div class="input-group">
+                <label>Day 4</label>
+                <input type="text" id="day4" placeholder="Present/Absent/Excused">
+            </div>
+
+            <div class="input-group">
+                <label>Day 5</label>
+                <input type="text" id="day5" placeholder="Present/Absent/Excused">
+            </div>
+        </div>
+    </div>
+
+    <!-- GRADES INPUTS -->
+    <div class="input-card">
+        <div class="input-group">
+            <label>Lab Work 1</label>
+            <input type="number" id="lab1" min="0" max="100">
+        </div>
+
+        <div class="input-group">
+            <label>Lab Work 2</label>
+            <input type="number" id="lab2" min="0" max="100">
+        </div>
+
+        <div class="input-group">
+            <label>Lab Work 3</label>
+            <input type="number" id="lab3" min="0" max="100">
+        </div>
+
+        <div class="input-group">
+            <label>Prelim Exam</label>
+            <input type="number" id="exam" min="0" max="100">
+        </div>
+    </div>
+
+    <button class="btn" onclick="calculate()">Calculate Prelim Grade</button>
+
+    <!-- RESULTS -->
+    <div class="result-card">
+        <h3>Computed Result</h3>
+
+        <table>
+            <tr>
+                <th>Prelim Grade</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td id="prelim">--</td>
+                <td id="status">--</td>
+            </tr>
+        </table>
+
+        <h4>Prelim Exam Requirements</h4>
+        <table>
+            <tr>
+                <th>Target</th>
+                <th>Required Exam Grade</th>
+                <th>Remarks</th>
+            </tr>
+            <tr>
+                <td>Passing (75)</td>
+                <td id="reqPass">--</td>
+                <td id="remarkPass">--</td>
+            </tr>
+            <tr>
+                <td>Excellent (100)</td>
+                <td id="reqExcellent">--</td>
+                <td id="remarkExcellent">--</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
