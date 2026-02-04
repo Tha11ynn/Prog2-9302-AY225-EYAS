@@ -3,16 +3,27 @@ const attendanceFields = ["day1", "day2", "day3", "day4", "day5"];
 attendanceFields.forEach(id => {
     const field = document.getElementById(id);
     field.addEventListener("input", (e) => {
-        // Convert input to uppercase
         let val = e.target.value.toUpperCase();
-        // Keep only P, A, or E, max length 1
         if (!["P", "A", "E"].includes(val)) val = "";
         e.target.value = val;
     });
 });
 
+// Grade validation (0–100 only)
+function validateGrade(value, fieldName) {
+    if (isNaN(value)) {
+        alert(`${fieldName} must be a number.`);
+        return false;
+    }
+    if (value < 0 || value > 100) {
+        alert(`${fieldName} must be between 0 and 100 only.`);
+        return false;
+    }
+    return true;
+}
+
 function calculate() {
-    // Get attendance inputs
+    // Attendance inputs
     let days = [
         document.getElementById("day1").value.trim(),
         document.getElementById("day2").value.trim(),
@@ -21,19 +32,23 @@ function calculate() {
         document.getElementById("day5").value.trim()
     ];
 
-    // Get grade inputs
+    // Grade inputs
     let lab1 = parseFloat(document.getElementById("lab1").value);
     let lab2 = parseFloat(document.getElementById("lab2").value);
     let lab3 = parseFloat(document.getElementById("lab3").value);
     let exam = parseFloat(document.getElementById("exam").value);
 
-    // Validate grade inputs
-    if (isNaN(lab1) || isNaN(lab2) || isNaN(lab3) || isNaN(exam)) {
-        alert("Please complete all grade fields with valid numbers.");
+    // Validate grades (0–100 only)
+    if (
+        !validateGrade(lab1, "Lab Work 1") ||
+        !validateGrade(lab2, "Lab Work 2") ||
+        !validateGrade(lab3, "Lab Work 3") ||
+        !validateGrade(exam, "Prelim Exam")
+    ) {
         return;
     }
 
-    // Validate attendance inputs
+    // Validate attendance
     for (let i = 0; i < days.length; i++) {
         if (!["P", "A", "E"].includes(days[i].toUpperCase())) {
             alert("Please complete all attendance fields with P, A, or E.");
@@ -41,13 +56,13 @@ function calculate() {
         }
     }
 
-    // Count absences
+    // Count absences (E is excused)
     let absentCount = 0;
     for (let day of days) {
         if (day.toUpperCase() === "A") absentCount++;
     }
 
-    // Auto-fail: more than 3 absences
+    // Auto-fail if more than 3 absences
     if (absentCount > 3) {
         document.getElementById("prelim").textContent = "FAILED";
         document.getElementById("status").textContent = "FAILED (Too many absences)";
@@ -63,10 +78,10 @@ function calculate() {
         return;
     }
 
-    // Calculate attendance score
+    // Attendance score (5 days = 100, -20 per absence)
     let attendanceScore = 100 - (absentCount * 20);
 
-    // Computations
+    // Grade computation
     let labAvg = (lab1 + lab2 + lab3) / 3;
     let classStanding = (attendanceScore * 0.40) + (labAvg * 0.60);
     let prelimGrade = (exam * 0.70) + (classStanding * 0.30);
@@ -77,7 +92,7 @@ function calculate() {
     status.textContent = prelimGrade >= 75 ? "PASSED" : "FAILED";
     status.className = prelimGrade >= 75 ? "passed" : "failed";
 
-    // PASSING (75)
+    // Required exam for PASSING (75)
     let reqPass = (75 - (classStanding * 0.30)) / 0.70;
     if (prelimGrade >= 75) {
         document.getElementById("reqPass").textContent = exam.toFixed(2);
@@ -93,7 +108,7 @@ function calculate() {
         document.getElementById("remarkPass").className = "pending";
     }
 
-    // EXCELLENT (100)
+    // Required exam for EXCELLENT (100)
     let reqExcellent = (100 - (classStanding * 0.30)) / 0.70;
     if (prelimGrade >= 100) {
         document.getElementById("reqExcellent").textContent = exam.toFixed(2);
