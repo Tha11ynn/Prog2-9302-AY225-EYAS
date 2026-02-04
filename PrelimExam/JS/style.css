@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #b8d3dc;
+    padding: 30px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.title {
+    color: maroon;
+    border-bottom: 3px solid gold;
+    padding-bottom: 6px;
+    margin-bottom: 15px;
+}
+
+/* INPUT CARD */
+.input-card {
+    background: #4e7c8a;
+    padding: 20px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    color: white;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.input-group input[type="text"] {
+    text-transform: capitalize;
+}
+
+/* BUTTON */
+.btn {
+    padding: 10px 25px;
+    background: darkred;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #a00000;
+}
+
+/* TABLE CARD */
+.result-card {
+    background: #fff7df;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 6px solid #f0c040;
+}
+
+.result-card h3 {
+    margin-top: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #f1f1f1;
+}
+
+/* DELETE BUTTON */
+.delete-btn {
+    background: darkred;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: #a00000;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .input-card {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .input-card {
+        grid-template-columns: 1fr;
+    }
+}

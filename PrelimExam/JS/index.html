@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Record System - Sophia Welynne S. Eyas - 23-0118-315</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Student Record System - Sophia Welynne S. Eyas - 23-0118-315</h1>
+
+        <!-- Input Card -->
+        <div class="input-card">
+            <div class="input-group">
+                <label for="txtID">ID</label>
+                <input type="text" id="txtID" placeholder="ID">
+            </div>
+            <div class="input-group">
+                <label for="txtName">Full Name</label>
+                <input type="text" id="txtName" placeholder="Full Name">
+            </div>
+            <div class="input-group">
+                <label for="txtGrade">Grades</label>
+                <input type="text" id="txtGrade" placeholder="69,5,52,12,78">
+            </div>
+            <div class="input-group" style="align-self: end;">
+                <button class="btn" id="btnAdd">Add</button>
+            </div>
+        </div>
+
+        <!-- Table Card -->
+        <div class="result-card">
+            <h3>Student Records</h3>
+            <table id="studentTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+
+            <!-- Delete Selected Button -->
+            <button class="btn" id="btnDeleteSelected" style="margin-top: 15px;">Delete Selected</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
