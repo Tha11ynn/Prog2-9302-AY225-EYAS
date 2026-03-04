@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Top 10 Customers Report</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1> Top 10 Customers Report</h1>
+    <p>Upload your CSV file (vgchartz-2024.csv)</p>
+
+    <input type="file" id="fileInput" accept=".csv">
+    <button onclick="processFile()">Generate Report</button>
+
+    <div id="errorMessage" class="error"></div>
+
+    <table id="resultTable">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Customer</th>
+                <th>Total Sales</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
