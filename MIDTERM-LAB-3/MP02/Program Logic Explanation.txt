@@ -1,0 +1,24 @@
+------------------------------------------------------------
+MP02 – Display First 10 Rows of Dataset
+------------------------------------------------------------
+ 
+JAVA:
+The program prompts the user for the CSV file path and reads
+it line by line using BufferedReader. It skips blank lines
+and searches for the header row starting with "Candidate".
+Once the header is found, the program collects subsequent
+non-empty data rows into an ArrayList, stopping as soon as
+10 rows have been gathered. Each of the 10 rows is then
+printed to the console in a labeled format, where each field
+is displayed alongside its column header name for easy
+readability.
+ 
+JAVASCRIPT:
+After receiving the file path through readline, the program
+reads and splits the file into lines using fs.readFileSync.
+It iterates through the lines to find the header row
+identified by the "candidate" keyword in the first column.
+The following non-empty rows are pushed into an array until
+10 records are collected. Each record is then printed field
+by field, using the header column names as labels, with
+padded spacing to keep the output neatly aligned.

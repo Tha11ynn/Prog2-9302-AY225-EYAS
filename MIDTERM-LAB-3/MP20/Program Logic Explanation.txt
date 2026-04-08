@@ -1,0 +1,28 @@
+------------------------------------------------------------
+MP20 – Convert CSV Dataset to JSON
+------------------------------------------------------------
+ 
+JAVA:
+The program asks the user for the CSV file path, then reads
+it using BufferedReader. It locates the header row starting
+with "Candidate" and stores the column names as keys. For
+each data row that follows, the program builds a JSON object
+string by pairing each column name with its corresponding
+value, properly escaping any special characters. All objects
+are collected into an ArrayList, then written to a new .json
+file using PrintWriter, formatted as a valid JSON array with
+commas between objects. A summary showing the input file,
+output file path, and total records converted is displayed
+at the end.
+ 
+JAVASCRIPT:
+The program uses readline to get the file path, then reads
+the CSV with fs.readFileSync. After filtering empty lines,
+it finds the header row by checking for "candidate" in the
+first column. For each data row after the header, it creates
+a plain JavaScript object by mapping each header name to its
+corresponding column value. All objects are collected into
+an array, then converted to a formatted JSON string using
+JSON.stringify with 2-space indentation. The result is
+written to a new .json file using fs.writeFileSync, and a
+summary is printed to the console.

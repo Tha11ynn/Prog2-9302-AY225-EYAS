@@ -1,0 +1,28 @@
+------------------------------------------------------------
+MP01 – Load Dataset and Display Total Records
+------------------------------------------------------------
+ 
+JAVA:
+The program starts by prompting the user to enter the file
+path of the CSV dataset. It then opens the file using
+BufferedReader and FileReader, reading the file line by line.
+Each line is split by commas to separate the columns. The
+program scans for the row that begins with "Candidate" to
+identify the true header of the dataset, skipping all
+metadata lines above it. Once the header is found, every
+subsequent non-empty row is counted as a valid record. After
+the entire file is read, the program displays the total
+number of records found along with the file path and total
+lines read.
+ 
+JAVASCRIPT:
+The program uses the readline module to ask the user for
+the CSV file path, then reads the entire file content at
+once using fs.readFileSync. The content is split into an
+array of lines, and empty lines are filtered out. The
+program loops through each line, splitting by commas, and
+looks for the row whose first column is "candidate"
+(case-insensitive) to locate the header. All non-empty rows
+after the header are counted as valid records. The final
+count is displayed to the console alongside the file details.
+ 
